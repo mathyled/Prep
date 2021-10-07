@@ -1,0 +1,19 @@
+#spanId { font-size: 25px;
+    margin: 50px;
+     }
+
+#thirdDiv { 
+     padding: 50px;
+     border: 8px solid blueviolet;
+    width: 500px;
+     height: 600px;
+      background-color: beige;
+}        
+
+h1 { color: aqua;}
+
+
+
+.spanId { 
+    margin: 50px;
+}
