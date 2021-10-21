@@ -4,16 +4,21 @@
 
 #thirdDiv { 
      padding: 50px;
-     border: 8px solid blueviolet;
+     border: 8px solid rgb(226, 177, 43);
     width: 500px;
      height: 600px;
       background-color: beige;
 }        
 
-h1 { color: aqua;}
+h1 { color: rgb(255, 166, 0);}
 
 
 
 .spanId { 
     margin: 50px;
+    font-size: 25px;
+}
+
+img { 
+    width: 400px;
 }

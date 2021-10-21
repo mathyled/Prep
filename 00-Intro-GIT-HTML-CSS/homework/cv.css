@@ -1,0 +1,29 @@
+h1 {
+    text-align: center;
+}
+
+div {
+    background-color: rgba(6, 236, 236,0.1);
+    border-radius: 20px;
+    border:rgb(174, 243, 220) 4px solid;
+    height:600px;
+}
+body { 
+    background-color: azure;
+}
+
+.contenedor { 
+          position: relative;
+}
+nav {
+    position: absolute;
+    left: 0px;
+    width: 200px;
+    border:rgb(174, 243, 220) 4px solid;
+
+}
+section {
+    margin-left: 200px;
+    border:rgb(174, 243, 220) 4px solid;
+    padding:20px;
+}
