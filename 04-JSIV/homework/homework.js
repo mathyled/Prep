@@ -20,18 +20,26 @@ function sumarArray(numeros, cb) {
   // No es necesario devolver nada
   // Tu código:
   // var suma=0;
-  var suma= numeros[0]
-  for (var i = 1; i < numeros.length; i++) {
-    suma=suma+numeros[i]
-  }
-  cb(suma);
+  // var suma= numeros[0]
+  // for (var i = 1; i < numeros.length; i++) {
+  //   suma=suma+numeros[i]
+  // }
+  // cb(suma);
+
+  var total=numeros.reduce(function(acc,item){
+    return acc+ item;
+  })
+  cb(total);
 }
 
 function forEach(array, cb) {
   // Itera sobre el array "array" y pasa los valores al callback uno por uno
   // Pista: Estarás invocando a `cb` varias veces (una por cada elemento el arreglo)
   // Tu código:
-  array.forEach(cb);
+  // array.forEach(cb);  // --> cb(elemt)
+  array.forEach(function(elemt){
+    return cb(elemt);
+  })
 }
 
 function map(array, cb) {
@@ -46,10 +54,14 @@ function filter(array) {
   // Filtrar todos los elementos del array que comiencen con la letra "a".
   // Devolver un nuevo array con los elementos que cumplen la condición
   // Tu código:
-  var filtrado=[];
- for (var i = 0; i < array.length; i++) {
-   if (array[i][0]==="a") { filtrado.push(array[i]) }
- }
+//   var filtrado=[];
+//  for (var i = 0; i < array.length; i++) {
+//    if (array[i][0]==="a") { filtrado.push(array[i]) }
+//  }
+// return filtrado;
+var filtrado=array.filter(function(i){
+  return i[0]==="a";
+})
 return filtrado;
 }
 
@@ -65,11 +77,15 @@ function deObjetoArray(objeto){
       C: 3
      }) ➞ [["D", 1], ["B", 2], ["C", 3]]*/
   // Tu código:
-  var aux=[];
-    for(const prop in objeto){
-      aux.push([prop,objeto[prop]])
-    }
-    return aux;
+  // var aux=[];
+  //   for(const prop in objeto){
+  //     aux.push([prop,objeto[prop]])
+  //   }
+  //   return aux;
+  return Object.entries(objeto);
+
+  // si quisiera solo la clave --> Object.key(objeto)
+  // si quisiera el valor --> Object.value(objeto)
 }
 
 function numberOfCharacters(string) {
@@ -80,13 +96,15 @@ function numberOfCharacters(string) {
 
 var run ={};
 for (var i = 0; i < string.length; i++) {
-    if ( !run[string[i]]){
-      run[string[i]]=1
+    if ( !run[string[i]]){ // (esto esta diciendo) si No tengo la letra en el objeto
+      run[string[i]]=1  // la creo, porque es la primera que creo
     }
-  else {  run[string[i]]= run[string[i]] +1}
+  else {  run[string[i]]= run[string[i]] +1} // si ya tengo ingresa en el else 
 }
 
 return run;
+
+// en este caso seria,si encuentra la letra dentro del string,la escribe y le pone 1,y si ya estaba escrita con un valor,le suma 1
 }
 
 function capicua(numero){
@@ -106,14 +124,28 @@ function deleteAbc(cadena){
   // Define una función que elimine las letras "a", "b" y "c" de la cadena dada 
   // y devuelva la versión modificada o la misma cadena, en caso de no contener dichas letras.
   // Tu código:
-  var nuevo="";
-  for (let i = 0; i < cadena.length; i++) {
-     if ( cadena[i]==="a" || cadena[i]==="b"||cadena[i]==="c"){
-        delete cadena[i]
-     }
-else { nuevo= nuevo + cadena[i]}
-  }
-  return nuevo;
+//   var nuevo="";
+//   for (let i = 0; i < cadena.length; i++) {
+//      if ( cadena[i]==="a" || cadena[i]==="b"||cadena[i]==="c"){
+//         delete cadena[i]
+//      }
+// else { nuevo= nuevo + cadena[i]}
+//   }
+//   return nuevo;
+
+
+
+// var nuevo="";
+//    for (let i = 0; i < cadena.length; i++) {
+//     if ( cadena[i]!=="a" && cadena[i]!=="b" && cadena[i]!=="c")
+//    { nuevo= nuevo + cadena[i]}}
+//    return nuevo;
+
+var arrCadena=cadena.split(""); // sepada String --> "sol" [ "s","o","l"]
+var arrFiltrado=arrCadena.filter(function(i){
+  return (i!=="a" && i!=="b" && i!=="c")
+})
+return arrFiltrado.join(""); // une string --> [ "s","o","l"] --> "sol"
 }
 
 function buscoInterseccion(arreglo1, arreglo2){
