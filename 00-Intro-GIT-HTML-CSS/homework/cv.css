@@ -27,3 +27,9 @@ section {
     border:rgb(174, 243, 220) 4px solid;
     padding:20px;
 }
+
+
+img { 
+    width: 100px;
+    bottom:0;
+}
